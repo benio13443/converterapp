@@ -1,24 +1,25 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Rate　Calculation</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 </head>
+
 <body>
     <div id="app">
         <form>
             <h1>Currency Converter</h1>
             <p>1ドル103.12円のとき</p>
             <div>
-            <p v-if="YenToDollar">JPY to USD</p>
-            <p v-else>USD to JPY</p>
-            <!-- v-ifのすぐ下にv-elseを書かないといけない -->
-            <button v-on:click="change" type="button">🇯🇵⇄🇺🇸</button>
+                <p v-if="YenToDollar">JPY to USD</p>
+                <p v-else>USD to JPY</p>
+                <button v-on:click="change" type="button">🇯🇵⇄🇺🇸</button>
             </div>
             <input type="text" v-model="price">
             <button v-on:click="convert" type="button">Convert</button>
             <div class="result_area">
-            <p> {{ result }} </p>
+                <p> {{ result }} </p>
             </div>
         </form>
     </div>
@@ -26,24 +27,25 @@
         var app = new Vue({
             el: "#app",
             data: {
-            YenToDollar: '',
-             price:'',
-             result:''
+                YenToDollar: '',
+                price: '',
+                result: ''
             },
-            methods:{
-            	change: function(){
-                this.YenToDollar = !this.YenToDollar
+            methods: {
+                change: function () {
+                    this.YenToDollar = !this.YenToDollar
                 },
                 //!は「〜じゃない」という否定
-                convert: function(){
-                if (this.YenToDollar){
-                this.result = this.price/103.12
-                }else{
-                this.result = this.price*103.12
+                convert: function () {
+                    if (this.YenToDollar) {
+                        this.result = this.price / 103.12
+                    } else {
+                        this.result = this.price * 103.12
+                    }
                 }
-              }  
             }
         })
     </script>
 </body>
+
 </html>
